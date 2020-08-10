@@ -1,0 +1,39 @@
+{
+    "overlap": [
+        "Male", "Female", "Child", "Male2", "Female2", "OtherChild", "OtherChild2", "TV", "Noise"
+    ],
+
+    "lena_to_ground_mappings": {
+        "MAN": "MAN",
+        "MAF": "MAF",
+        "FAN": "FAN",
+        "FAF": "FAF",
+        "CHN": "CHN",
+        "CHF": "CHF",
+        "CXN": "CXN",
+        "CXF": "CXF",
+        "NON": "NON",
+        "NOF": "NOF",
+        "OLN": "OLN",
+        "OLF": "OLF",
+        "TVN": "TVN",
+        "TVF": "TVF",
+        "SIL": "SIL"
+    },
+
+    "human_to_ground_mappings": {
+        "Male": "Male",
+        "Female": "Female",
+        "Male2": "Male",
+        "Female2": "Female",
+        "Child": "Child",
+        "OtherChild": "OtherChild",
+        "OtherChild2": "OtherChild",
+        "Silence": "Silence",
+        "Noise": "Noise",
+        "TV": "TV"
+    },
+
+    "lena_order": ["CHN", "CHF", "CXN", "CXF", "FAN", "FAF", "MAN", "MAF", "TVN", "TVF", "OLN", "OLF", "NON", "NOF", "SIL"],
+    "human_order": ["Silence", "Noise", "Overlap", "UnspecifiedOverlap", "TV", "Male", "Female", "OtherChild", "Child"]
+}
