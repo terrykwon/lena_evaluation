@@ -175,10 +175,8 @@ def dict_to_frames(tiers, default_class, consider_overlapped=None):
     return frames
 
 
-def test_single_accuracy(clip_number, lena_mappings, human_mappings, consider_overlapped, frame_length=10):
-    """ Tests the accuracy of Clip <clip_number>.
-
-    Returns the confusion matrix.
+def clip_to_frames_single(clip_number, lena_mappings, human_mappings, consider_overlapped, frame_length=10):
+    """ Returns the frames for both LENA and human annotations, which can be used to calculate a confusion matrix.
     """
     df = pd.read_csv(METADATA_PATH, index_col='ClipNumber')
     its_filename = df.loc[clip_number].ProcessingFile
@@ -221,14 +219,14 @@ def test_single_accuracy(clip_number, lena_mappings, human_mappings, consider_ov
     return y_lena, y_human
 
 
-def test_all_accuracy(lena_mappings, human_mappings, consider_overlapped, frame_length=10):
+def clip_to_frames_all(lena_mappings, human_mappings, consider_overlapped, frame_length=10):
     """ Returns the summed labels over 60 clips.
     """
     total_lena = []
     total_human = []
 
     for i in range(1, 61):
-        y_lena, y_human = test_single_accuracy(i, lena_mappings, human_mappings, 
+        y_lena, y_human = clip_to_frames_single(i, lena_mappings, human_mappings, 
                 consider_overlapped, frame_length)
         total_lena.extend(y_lena)
         total_human.extend(y_human)
