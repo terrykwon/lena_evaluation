@@ -1,7 +1,3 @@
-""" Methods to parse and convert between different annotation
-    types.
-"""
-
 from pyannote.core import Segment, notebook, Annotation
 
 import os
@@ -220,7 +216,7 @@ def clip_to_frames_single(clip_number, lena_mappings, human_mappings, consider_o
 
 
 def clip_to_frames_all(lena_mappings, human_mappings, consider_overlapped, frame_length=10):
-    """ Returns the summed labels over 60 clips.
+    """ Returns the accumulated labelled frames for all 60 clips.
     """
     total_lena = []
     total_human = []
@@ -235,9 +231,11 @@ def clip_to_frames_all(lena_mappings, human_mappings, consider_overlapped, frame
 
 
 def dict_to_annotation(tier_dict, silence_class):
+    """ Converts a dictionary of speech tiers to the `Annotation` data structure used in pyannote libraries.
+    """
     annotation = Annotation()
     for tier in tier_dict:
-        if tier in silence_class:
+        if tier in silence_class: # Annotations don't require an explicit silence class (this is the default).
             continue
         for (time_start, time_stop), _ in tier_dict[tier]:
             segment = Segment(float(time_start)/1000, float(time_stop)/1000) # ms to seconds
