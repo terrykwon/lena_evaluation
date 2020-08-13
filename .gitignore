@@ -1,5 +1,7 @@
 data/*
-tests/data/*
+tests/
+results/
+run_tests.sh
 
 .vscode/
 
