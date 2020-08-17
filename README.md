@@ -12,6 +12,8 @@ The `results.ipynb` Jupyter notebook contains the high-level code used to genera
 Since the output classes of LENA differ from the human transcripts, diarization / identification evaluation is done by mapping both to the a common set of classes.
 The mappings are defined in `mappings/` as JSON files, and enable convenient experimentation with different options.
 
+Errors, error rates, correlations, and graphs of comparisons of LENA and human codings were calculated in R (version 3.5.3). The data set, `LENA_supplementary.xlsx`, includes the necessary variables for each of the 60 clips and the R script, `LENA_Human_Comparisons.R`, includes the relevant code.
+
 
 ## Build
 
