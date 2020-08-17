@@ -1,24 +1,28 @@
 # Code for 'Evaluating the LENA System for Korean'
 
 This repository accompanies our upcoming paper, **Evaluating the LENA System for Korean** (McDonald et al., 2020).
-The data used in evaluation is not yet public and this repository is meant to be a reference only for the time being.
+The data (transcripts) used in evaluation is not yet public and this repository is meant to be a reference only for the time being.
 
+## Data format
 The original LENA transcripts are CHAT (`.cha`) files, having been exported from the LENA software.
 The human transcripts are TextGrids (`.TextGrid`).
+The spreadsheet `clip_data.xlsx` includes the relevant variables for each of the 60 clips, such as AWC and CVC.
 
-`evaluation.py` contains the methods to parse these transcripts into a common data structure, as well as methods to calculate classification accuracy, and also to extract features such as the word and turn count.
-The `results.ipynb` Jupyter notebook contains the high-level code used to generate the results and figures used in the paper, such as confusion matrices.
+## Analysis code
+`evaluation.py` contains the methods to parse the CHAT and TextGrid transcripts into a common data structure, as well as methods to calculate classification accuracy, and also to extract features such as the word and turn count.
 
 Since the output classes of LENA differ from the human transcripts, diarization / identification evaluation is done by mapping both to the a common set of classes.
 The mappings are defined in `mappings/` as JSON files, and enable convenient experimentation with different options.
 
-Errors, error rates, correlations, and graphs of comparisons of LENA and human codings were calculated in R (version 3.5.3). The data set, `LENA_supplementary.xlsx`, includes the necessary variables for each of the 60 clips and the R script, `LENA_Human_Comparisons.R`, includes the relevant code.
+The `results.ipynb` Jupyter notebook contains some of the high-level code used to generate the results and figures used in the paper, such as confusion matrices. 
+The remaining errors, error rates, correlations, and graphs of comparisons of LENA and human codings are calculated in `results.R`.
 
 
 ## Build
 
 The recommended Python version is 3.8.
-Dependencies can be installed with `pip` (possibly within a virtual environment).
+The recommended R version is 3.5.3.
+Python dependencies can be installed with `pip` (possibly within a virtual environment).
 
 ```
 pip install -r requirements.txt
