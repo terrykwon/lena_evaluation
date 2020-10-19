@@ -15,7 +15,7 @@ from sklearn.metrics import confusion_matrix
 from konlpy.tag import Hannanum, Mecab
 
 
-METADATA_PATH = 'data/metadata.csv'
+METADATA_PATH = 'data/clip_data.csv'
 CHAT_PATH = 'data/chats/'
 TEXTGRID_PATH = 'data/textgrids/'
 
