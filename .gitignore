@@ -2,6 +2,7 @@ data/audio/
 data/chats/
 data/its/
 data/textgrids/
+data/textgrids_irr
 tests/
 results/
 run_tests.sh

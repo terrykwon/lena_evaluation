@@ -94,12 +94,12 @@ def textgrid_to_dict(filename, child_subcategories=False):
             subcategory = ''
             # an '' interval is empty. else it would be the transcription, 'V', etc.
             if child_subcategories and tier.name == 'Child':
-                if interval.mark != '' and interval.mark not in subcategories:
+                if interval.mark != '' and not interval.mark.isspace() and interval.mark not in subcategories:
                     subcategory = '_vo' # is vocalization, e.g. 엄마
                 elif interval.mark in subcategories:
                     subcategory = subcategories[interval.mark]
 
-            if interval.mark != '': 
+            if interval.mark != '' and not interval.mark.isspace(): 
                 start_ms = int(interval.bounds()[0] * 1000)
                 end_ms = int(interval.bounds()[1] * 1000)
 
@@ -338,10 +338,18 @@ def get_total_tv_duration(filename):
     return sum
 
 
-def count_word_whitespace(clip_no, included_tiers=['Female', 'Female2', 'Male', 'Male2']):
+def count_word_whitespace(clip_no, path=None, included_tiers=['Female', 'Female2', 'Male', 'Male2']):
+    ''' If the path is included, clip_no is ignored (so should be None). 
+        If not, then the main transcript is used.
+    '''
+    if path is None:
+        filename = 'Clip{}.TextGrid'.format(clip_no)
+        filepath = os.path.join(TEXTGRID_PATH, filename)
+    else:
+        filepath = path
+
     count = 0
-    filename = 'Clip{}.TextGrid'.format(clip_no)
-    filepath = os.path.join(TEXTGRID_PATH, filename)
+
     transcripts = textgrid_to_dict(filepath)
     for tier in included_tiers:
         for timestamps, utterance in transcripts[tier]:
