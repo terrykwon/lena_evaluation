@@ -31,3 +31,8 @@ pip install -r requirements.txt
 In order to calculate the morpheme count for Korean text, the `Mecab` library must additionally be installed locally.
 If not, an error will be thrown by the `konlpy` library when a dependent method is called.
 Installation instructions can be found in https://konlpy.org/en/latest/install/.
+
+
+## Coding Manual
+
+Our coding manual for the transcriptions can be found at https://docs.google.com/document/d/1d-CWoHjXyvCOtTCxtgDKrYX_v-YGJf-yoXFzq5khBRs/edit.
