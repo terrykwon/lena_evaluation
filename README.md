@@ -33,6 +33,6 @@ If not, an error will be thrown by the `konlpy` library when a dependent method 
 Installation instructions can be found in https://konlpy.org/en/latest/install/.
 
 
-## Coding Manual
+## Coding manual
 
-Our coding manual for the transcriptions can be found at https://docs.google.com/document/d/1d-CWoHjXyvCOtTCxtgDKrYX_v-YGJf-yoXFzq5khBRs/edit.
+Our coding guidelines for the transcriptions can be found at https://docs.google.com/document/d/1d-CWoHjXyvCOtTCxtgDKrYX_v-YGJf-yoXFzq5khBRs/edit.
