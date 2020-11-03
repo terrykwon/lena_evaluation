@@ -424,3 +424,22 @@ def total_adult_speech_duration(lena_mappings, human_mappings):
     for i in range(1, 61):
         human_annot, lena_annot = clip_to_annotations(i, lena_mappings, human_mappings)
         print(lena_annot.label_duration('Female') + lena_annot.label_duration('Male'))
+
+
+def mask_dialogue(filename, output_dir):
+    ''' Replaces each Korean character with an "x"
+        and saves the file.
+    '''
+    print(filename)
+    grid = textgrid.TextGrid()
+    grid.read(filename)
+
+    for tier in grid:
+        if type(tier) == textgrid.PointTier:
+            continue
+        for interval in tier.intervals:
+            # if re.search(u'[\u3131-\ucb4c]', interval.mark):
+                # print(interval.mark)
+            interval.mark = re.sub(u'[\uac00-\ud7af]', 'x', interval.mark)
+
+    grid.write(os.path.join(output_dir, os.path.basename(filename)))

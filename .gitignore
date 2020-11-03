@@ -3,6 +3,7 @@ data/chats/
 data/its/
 data/textgrids/
 data/textgrids_irr
+data/temp/
 tests/
 results/
 run_tests.sh

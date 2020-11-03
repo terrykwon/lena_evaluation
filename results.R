@@ -1,12 +1,15 @@
+###File for main analyses of LENA validation of Korean manuscript###
 library(Hmisc)
 library(ggplot2)
 library(readxl)
 library(lmSupport)
 
 #Read in data
-setwd("/LOCATION OF EXCEL FILE/")
-d<-read_xlsx("data/clip_data.xlsx",sheet="LENA_Supplementary")
+setwd("/LOCATION OF EXCEL FILES/")
+###setwd("/Users/Margarethe/Desktop/")
+d<-read_xlsx("LENA_Supplementary.xlsx",sheet="LENA_Supplementary")
 d2<-d[!d$Singing=="yes",]
+df0<-read.csv("F0_duration_measures.csv")
 
 #theme for graphs
 theme1<-theme(
@@ -24,6 +27,17 @@ theme1<-theme(
   legend.title=element_text(size=13.5),
   legend.position = "right",)
 
+#Test pitch measures
+df0$clip_no<-as.numeric(gsub("Clip","",df0$Filename))
+df02<-merge(df0,d,by="clip_no")
+df02$F0_medianC <- df02$F0_median-mean(df02$F0_median,na.rm=T)
+df02$Duration.msC<-(df02$Duration.ms..-mean(df02$Duration.ms..,na.rm=T))/1000
+df02$Duration_noiseC<-df02$Duration_noise-mean(df02$Duration_noise,na.rm=T)
+df02$Duration_TVC<-df02$Duration_TV-mean(df02$Duration_TV,na.rm=T)
+df02$AgeC<-df02$Age-12
+f0_counts<-ddply(df02[!is.na(df02$F0_median),],.(clip_no),summarise,utterances=length(F0_median))
+df02<-merge(df02,f0_counts,by="clip_no")
+summary(lmer(IER~F0_medianC+Duration.msC+AgeC+Duration_noise+Duration_TV+(1|Id),data=df02[df02$F0_median<1000,]))
 
 
 ####Miss, False Alarm, Confusion, IER####
@@ -34,21 +48,12 @@ sum(d$Confusion)/sum(d$Total_speech)
 sum(d$`False Alarm`,d$Miss,d$Confusion)/sum(d$Total_speech)
 #by clip
 varDescribe(d,Digits=3)
-#by age
-varDescribeBy(d$IER,d$Age2)
-t.test(d$IER~d$Age2)
 #by number of speakers
 varDescribe(d[d$Speakers2=="2",]$IER,Digits=3)
 varDescribe(d[d$Speakers2=="3",]$IER,Digits=3)
 varDescribe(d[d$Speakers2=="4+",]$IER,Digits=3)
 anova(lm(IER~Speakers2,d))
-#Test pitch measures
-d$Mean_F0<-as.numeric(d$Mean_F0)
-d$Duration_female<-as.numeric(d$Duration_female)
-d$Mean_F0C <- d$Mean_F0-mean(d$Mean_F0,na.rm=T)
-d$Duration_femaleC<-(d$Duration_female-mean(d$Duration_female,na.rm=T))/1000
-d$AgeC<-d$Age-12
-summary(lm(IER~Mean_F0C+Duration_femaleC+AgeC+Duration_noise+Duration_TV,data=d))
+
 
 #####AWC####
 #Correlations
