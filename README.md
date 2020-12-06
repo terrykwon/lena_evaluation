@@ -3,7 +3,7 @@
 This repository accompanies our upcoming paper, **Evaluating the LENA System for Korean** (McDonald et al., 2020).
 
 ## Data
-Our data, coding manual, and paper draft is shared on https://osf.io/uztxr/.
+Our data, coding manual, and paper draft are shared on https://osf.io/uztxr/.
 
 The original LENA transcripts are CHAT (`.cha`) files, having been exported from the LENA software.
 The human transcripts are TextGrids (`.TextGrid`).
