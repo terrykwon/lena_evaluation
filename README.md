@@ -1,9 +1,10 @@
 # Code for 'Evaluating the LENA System for Korean'
 
 This repository accompanies our upcoming paper, **Evaluating the LENA System for Korean** (McDonald et al., 2020).
-The data (transcripts) used in evaluation is not yet public and this repository is meant to be a reference only for the time being.
 
-## Data format
+## Data
+Our data, coding manual, and paper draft is shared on https://osf.io/uztxr/.
+
 The original LENA transcripts are CHAT (`.cha`) files, having been exported from the LENA software.
 The human transcripts are TextGrids (`.TextGrid`).
 The spreadsheet `clip_data.xlsx` includes the relevant variables for each of the 60 clips, such as AWC and CVC.
@@ -31,8 +32,3 @@ pip install -r requirements.txt
 In order to calculate the morpheme count for Korean text, the `Mecab` library must additionally be installed locally.
 If not, an error will be thrown by the `konlpy` library when a dependent method is called.
 Installation instructions can be found in https://konlpy.org/en/latest/install/.
-
-
-## Coding manual
-
-Our coding guidelines for the transcriptions can be found at https://docs.google.com/document/d/1d-CWoHjXyvCOtTCxtgDKrYX_v-YGJf-yoXFzq5khBRs/edit.
