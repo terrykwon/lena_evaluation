@@ -34,6 +34,12 @@ If not, an error will be thrown by the `konlpy` library when a dependent method 
 Installation instructions can be found in https://konlpy.org/en/latest/install/.
 
 
+## License
+
+Distributed under the MIT License. See LICENSE for more information.
+
+
 ## Acknowledgements
 
 This work was supported by Institute for Information & Communications Technology Planning \ Evaluation(IITP) grant funded by the Korea government(MSIT) (No.2019-0-01367, Infant-Mimic Neurocognitive Developmental Machine Learning from Interaction Experience with Real World (BabyMind)).
+
