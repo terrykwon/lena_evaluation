@@ -30,7 +30,7 @@ jupyter-core==4.6.3
 kiwisolver==1.2.0
 konlpy==0.5.2
 lazy-object-proxy==1.4.3
-lxml==4.5.2
+lxml==4.6.2
 MarkupSafe==1.1.1
 matplotlib==3.3.0
 mccabe==0.6.1
