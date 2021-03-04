@@ -1,9 +1,9 @@
 # Code for 'Evaluating the LENA System for Korean'
 
-This repository accompanies our upcoming paper, **Evaluating the LENA System for Korean** (McDonald et al., 2020).
+This repository accompanies our paper, [**Evaluating the Language ENvironment Analysis System for Korean**](https://doi.org/10.1044/2020_JSLHR-20-00489) (McDonald et al., 2020), published in the *Journal of Speech, Language, and Hearing Research (JSLHR)*.
 
 ## Data
-Our data, coding manual, and paper draft are shared on https://osf.io/uztxr/.
+Our data and coding manual are shared on https://osf.io/uztxr/.
 
 The original LENA transcripts are CHAT (`.cha`) files, having been exported from the LENA software.
 The human transcripts are TextGrids (`.TextGrid`).
@@ -32,6 +32,26 @@ pip install -r requirements.txt
 In order to calculate the morpheme count for Korean text, the `Mecab` library must additionally be installed locally.
 If not, an error will be thrown by the `konlpy` library when a dependent method is called.
 Installation instructions can be found in https://konlpy.org/en/latest/install/.
+
+
+## Citation
+If you refer to our code or analysis in your work, please consider citing our paper:
+
+```bibtex
+@article{doi:10.1044/2020\_JSLHR-20-00489,
+author = {Margarethe McDonald  and Taeahn Kwon  and Hyunji Kim  and Youngki Lee  and Eon-Suk Ko },
+title = {Evaluating the Language ENvironment Analysis System for Korean},
+journal = {Journal of Speech, Language, and Hearing Research},
+volume = {},
+number = {},
+pages  = {},
+year = {},
+doi = {10.1044/2020\_JSLHR-20-00489}
+
+URL = {https://pubs.asha.org/doi/abs/10.1044/2020_JSLHR-20-00489},
+eprint = {https://pubs.asha.org/doi/pdf/10.1044/2020_JSLHR-20-00489}
+}
+```
 
 
 ## License
