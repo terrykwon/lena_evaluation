@@ -1,6 +1,6 @@
 # Code for 'Evaluating the LENA System for Korean'
 
-This repository accompanies our paper, [**Evaluating the Language ENvironment Analysis System for Korean**](https://doi.org/10.1044/2020_JSLHR-20-00489) (McDonald et al., 2020), published in the *Journal of Speech, Language, and Hearing Research (JSLHR)*.
+This repository accompanies our paper, [**Evaluating the Language ENvironment Analysis System for Korean**](https://doi.org/10.1044/2020_JSLHR-20-00489) (McDonald et al., 2021), published in the *Journal of Speech, Language, and Hearing Research (JSLHR)*.
 
 ## Data
 Our data and coding manual are shared on https://osf.io/uztxr/.
@@ -42,10 +42,10 @@ If you refer to our code or analysis in your work, please consider citing our pa
 author = {Margarethe McDonald  and Taeahn Kwon  and Hyunji Kim  and Youngki Lee  and Eon-Suk Ko },
 title = {Evaluating the Language ENvironment Analysis System for Korean},
 journal = {Journal of Speech, Language, and Hearing Research},
-volume = {},
-number = {},
-pages  = {},
-year = {},
+volume = {64},
+number = {3},
+pages  = {792-808},
+year = {2021},
 doi = {10.1044/2020\_JSLHR-20-00489}
 
 URL = {https://pubs.asha.org/doi/abs/10.1044/2020_JSLHR-20-00489},
